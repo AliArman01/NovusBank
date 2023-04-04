@@ -1,10 +1,10 @@
 const router = require('express').Router();
 
-const userController = require('../contorllers/sms-controller');
+const otpController = require('../contorllers/otp-controller');
 
-router.get('/',userController.getMessege);
+router.get('/',otpController.getOTP);
 
-router.post('/send-otp',userController.postMessege);
+router.post('/send-otp',otpController.postOTP);
 
 
 module.exports = router

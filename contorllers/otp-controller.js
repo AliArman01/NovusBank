@@ -1,10 +1,10 @@
 const Nexmo = require('nexmo');
 
-exports.getMessege = (req, res, next) => {
-    res.render('sms-page');
+exports.getOTP= (req, res, next) => {
+    res.render('otp-page');
 }
 
-exports.postMessege = async (req, res, next) => {
+exports.postOTP = async (req, res, next) => {
     try{   
        const Mobileno = req.body.phoneNumber
        console.log("Mobile no of reciever",Mobileno)

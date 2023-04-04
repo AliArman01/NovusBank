@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const smsSchema = new Schema({
+const otpSchema = new Schema({
     phoneNo:{
     type:String,
     required: true
@@ -12,5 +12,5 @@ const smsSchema = new Schema({
   }
  
 });
-module.exports = mongoose.model('Sms', smsSchema);
+module.exports = mongoose.model('OTP', otpSchema);
 
