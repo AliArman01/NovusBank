@@ -105,3 +105,61 @@ app.post('/send-code', async (req, res) => {
 
   return res.json({ message: `Message sent with id: ${response.sid}` });
 });
+
+
+
+
+
+    //  const recipientPhoneNumber = req.body.phoneNumber;
+    //  console.log(recipientPhoneNumber)
+    // const randomNumber = generateRandomSixDigitsNumber();
+    // const message = `Hello from Arman ! Your verification code is: ${randomNumber}`;
+    // console.log("messege", message)
+
+    // const response = await twilioClient.messages.create({
+    //     from: recipientPhoneNumber,
+    //     to: +917319977276,
+    //     body: message,
+    //   });
+    // return res.json({ message: `Message sent with id: ${response.sid}` });  
+
+
+    // twilioClient.messages
+    //     .create({ body: "Hello from Twilio",
+    //     from: +13602275105, 
+    //     to: +917319977276
+    //     })
+    //     .then(message => console.log(message.sid));
+
+        
+        // const nexmo = new Nexmo({
+        //   apiKey: 'a3c30cd3',
+        //   apiSecret: 'cMq6CR5R0AtexPrM'
+        // });
+        // const otp = Math.floor(1000 + Math.random() * 9000); // Generate a 4-digit OTP
+        // const mobileNumber = "+919265216270" ; // Replace with the actual mobile number
+        // console.log("your otp is here",otp)
+        // nexmo.message.sendSms(
+        //   recipientPhoneNumber, // Replace with your virtual number
+        //   mobileNumber,
+        //   `Hello Sams This is Your OTP  ${otp}`,
+        //   { type: 'unicode' },
+        //   (err, responseData) => {
+        //     if (err) {
+        //       console.log(err);
+        //     } else {
+        //       console.dir(responseData);
+        //     }
+        //   }
+        // );  
+
+
+        const accountSid = 'AC6a13a2d1dff2515f25b47637aa4d76cd';
+const authToken = 'bfdb14efba2da5f85f23b555a26f05eb';
+const twilioClient = twilio(accountSid, authToken);
+
+const generateRandomSixDigitsNumber = () => {
+    const min = 100000;
+    const max = 999999;
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  };
