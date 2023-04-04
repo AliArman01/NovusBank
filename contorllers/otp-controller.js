@@ -3,13 +3,12 @@ const { validationResult } = require('express-validator')
 exports.getOTP = (req, res, next) => {
   res.render('otp-page');
 }
-
 exports.postOTP = async (req, res, next) => {
   try {
     const errors = validationResult(req)
     if (!errors.isEmpty()) {
       const err = new Error('Validation Failed')
-      err.statusCode = 422
+      err.statusCode = 403
       err.data = errors.array();
       throw err;
     }
@@ -18,11 +17,11 @@ exports.postOTP = async (req, res, next) => {
       apiKey: '1b53634a',
       apiSecret: 'OBo3WSPd0DxqvllP',
     });
-    const from = '+919737744792';
+    const from = '+916201939957';
     const to = Mobileno;
     const otp = Math.floor(1000 + Math.random() * 9000); // Generate a 4-digit OTP
     nexmo.message.sendSms(from, to,
-      `Here is Your OTP for Verification by Anas ${otp}`,
+      `Here is Your OTP for Verification by Sams ${otp}`,
       (err, responseData) => {
         if (err) {
           console.log(err);
@@ -31,6 +30,7 @@ exports.postOTP = async (req, res, next) => {
         }
       });
     res.send('otp send successfully')
+   
   }
   catch (error) {
     const status = error.statusCode || 500;
