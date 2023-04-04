@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
-const {check} =require('express-validator');
+const { check } = require('express-validator');
 const port = 4500;
 
 const smsRoute = require('./routes/sms-route')
@@ -35,12 +35,12 @@ app.use(
     saveUninitialized: false,
     store: store
   })
-  );
+);
 
 mongoose
   .connect(MONGODB_URI)
   .then(result => {
-console.log("Database Connected")
+    console.log("Database Connected")
   })
   .catch(err => {
     console.log(err);
